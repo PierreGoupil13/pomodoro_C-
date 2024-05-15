@@ -1,8 +1,8 @@
-﻿@page "/pomodoro_tf"
-@rendermode InteractiveServer
+﻿@page "/pomodoro"
 @using System.Text.Json
+@using System.Timers
+@rendermode InteractiveServer
 @inject IWebHostEnvironment hostEnvironment
-
 
 
 <PageTitle>Pomodoro Timer</PageTitle>
@@ -14,6 +14,11 @@
     <p>Break Time: @breakTime minutes</p>
     <p role="status">Time Remaining: @DisplayTime</p>
 </div>
+
+<InputRadioGroup @bind-Value="timer25" TValue="bool">
+    <InputRadio Value="@true" @onclick="OnRadioChange" disabled="@isRunning"/>Période 25 / 5 <br/>
+    <InputRadio Value="@false" @onclick="OnRadioChange" disabled="@isRunning"/>Période 45 / 15 <br/>
+</InputRadioGroup>
 
 <button class="btn btn-primary" @onclick="StartTimer" disabled="@isRunning">Start</button>
 <button class="btn btn-primary" @onclick="ResetTimer" disabled="@(!isRunning)">Reset</button>
@@ -27,7 +32,7 @@
     <ul class="list-group">
         @foreach (var session in timerHistory)
         {
-        <li class="list-group-item">Session : @($"{session.Minutes:00}:{session.Seconds:00}") écoulées</li>
+            <li class="list-group-item">Session : @($"{session.Minutes:00}:{session.Seconds:00}") écoulées</li>
         }
     </ul>
 </div>
@@ -48,28 +53,33 @@
 
 
 @code {
+    private readonly int workTime25 = 25;
+    private readonly int breakTime25 = 5;
+    private readonly int workTime45 = 45;
+    private readonly int breakTime45 = 15;
     private int workTime = 25;
     private int breakTime = 5;
     private bool isWorking = true;
     private int minutes = 25;
-    private int seconds = 0;
-    private bool isRunning = false;
-    private List<TimerSessionData> timerHistory = new List<TimerSessionData>();
-    private System.Timers.Timer timer;
+    private int seconds;
+    private bool isRunning;
+    private bool timer25 = true;
+    private readonly List<TimerSessionData> timerHistory = new();
+    private Timer timer;
 
     private string DisplayTime => $"{minutes:00}:{seconds:00}";
 
     protected override async Task OnInitializedAsync()
     {
-        timer = new System.Timers.Timer(1000);
+        timer = new Timer(1000);
         timer.Elapsed += TimerElapsed;
         await base.OnInitializedAsync();
     }
-    
+
     private async Task ExportToJson()
     {
         var json = JsonSerializer.Serialize(timerHistory);
-        
+
         var wwwRootPath = hostEnvironment.WebRootPath;
 
         var filePath = Path.Combine(wwwRootPath, "timer_history.json");
@@ -77,6 +87,22 @@
         await File.WriteAllTextAsync(filePath, json);
     }
     
+    private void OnRadioChange()
+    {
+        if (!timer25)
+        {
+            workTime = workTime25;
+            minutes = workTime25;
+            breakTime = breakTime25;
+        }
+        else
+        {
+            workTime = workTime45;
+            minutes = workTime45;
+            breakTime = breakTime45;
+        }
+    }
+
     private void StartTimer()
     {
         if (!isRunning)
@@ -84,10 +110,9 @@
             isRunning = true;
             timer.Start();
             StateHasChanged(); // Trigger UI update
-
         }
     }
-    
+
     private void ResetTimer()
     {
         timer.Stop();
@@ -106,7 +131,7 @@
             StateHasChanged(); // Trigger UI update
         }
     }
-    
+
     private void ResumeTimer()
     {
         if (!isRunning)
@@ -118,7 +143,7 @@
     }
 
 
-    private async void TimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+    private async void TimerElapsed(object sender, ElapsedEventArgs e)
     {
         if (seconds == 0)
         {
@@ -134,17 +159,15 @@
                 else
                 {
                     isWorking = true;
-
                 }
+
                 seconds = 0;
                 await InvokeAsync(StateHasChanged); // Ensure UI update on UI thread
                 return;
             }
-            else
-            {
-                minutes--;
-                seconds = 59;
-            }
+
+            minutes--;
+            seconds = 59;
         }
         else
         {
@@ -153,9 +176,8 @@
 
 
         await InvokeAsync(StateHasChanged); // Ensure UI update on UI thread
-
     }
-    
+
     public class TimerSessionData
     {
         public int Minutes { get; set; }
@@ -163,4 +185,3 @@
     }
 
 }
-
