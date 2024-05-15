@@ -7,12 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Components\Pages\Pomodoro.cs" />
-      <Compile Remove="Components\Pages\Pomodoro.cshtml.cs" />
+        <Compile Remove="Components\Pages\Pomodoro.cs"/>
+        <Compile Remove="Components\Pages\Pomodoro.cshtml.cs"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="Components\Pages\Pomodoro.cshtml" />
+        <Content Remove="Components\Pages\Pomodoro.cshtml"/>
     </ItemGroup>
 
 </Project>

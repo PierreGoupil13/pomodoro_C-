@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets/favicon.png"
     },
     {
+      "Id": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/focused_tomato.png",
+      "PackagePath": "staticwebassets/focused_tomato.png"
+    },
+    {
+      "Id": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/timer_history.json",
+      "PackagePath": "staticwebassets/timer_history.json"
+    },
+    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BlazorApp1.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

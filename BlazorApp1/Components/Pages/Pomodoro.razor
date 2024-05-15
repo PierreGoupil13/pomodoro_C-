@@ -1,5 +1,9 @@
 ﻿@page "/pomodoro"
+@using System.Text.Json
+@using System.Timers
 @rendermode InteractiveServer
+@inject IWebHostEnvironment hostEnvironment
+
 
 <PageTitle>Pomodoro Timer</PageTitle>
 
@@ -11,24 +15,92 @@
     <p role="status">Time Remaining: @DisplayTime</p>
 </div>
 
+<InputRadioGroup @bind-Value="timer25" TValue="bool">
+    <InputRadio Value="@true" @onclick="OnRadioChange" disabled="@isRunning"/>Période 25 / 5 <br/>
+    <InputRadio Value="@false" @onclick="OnRadioChange" disabled="@isRunning"/>Période 45 / 15 <br/>
+</InputRadioGroup>
+
 <button class="btn btn-primary" @onclick="StartTimer" disabled="@isRunning">Start</button>
 <button class="btn btn-primary" @onclick="ResetTimer" disabled="@(!isRunning)">Reset</button>
+<button class="btn btn-primary" @onclick="PauseTimer" disabled="@(!isRunning)">Pause</button>
+<button class="btn btn-primary" @onclick="ResumeTimer" disabled="@(isRunning)">Resume</button>
+<button class="btn btn-primary" @onclick="ExportToJson">Export to JSON</button>
+
+
+<div>
+    <h2>Timer History</h2>
+    <ul class="list-group">
+        @foreach (var session in timerHistory)
+        {
+            <li class="list-group-item">Session : @($"{session.Minutes:00}:{session.Seconds:00}") écoulées</li>
+        }
+    </ul>
+</div>
+
+<script>
+    function downloadJson(data, filename) {
+        var blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+        var url = window.URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    }
+</script>
+
 
 @code {
-    private int workTime = 1;
+    private readonly int workTime25 = 25;
+    private readonly int breakTime25 = 5;
+    private readonly int workTime45 = 45;
+    private readonly int breakTime45 = 15;
+    private int workTime = 25;
     private int breakTime = 5;
-    private int minutes = 0;
-    private int seconds = 5;
-    private bool isRunning = false;
-    private System.Timers.Timer timer;
+    private bool isWorking = true;
+    private int minutes = 25;
+    private int seconds;
+    private bool isRunning;
+    private bool timer25 = true;
+    private readonly List<TimerSessionData> timerHistory = new();
+    private Timer timer;
 
     private string DisplayTime => $"{minutes:00}:{seconds:00}";
 
     protected override async Task OnInitializedAsync()
     {
-        timer = new System.Timers.Timer(1000);
+        timer = new Timer(1000);
         timer.Elapsed += TimerElapsed;
         await base.OnInitializedAsync();
+    }
+
+    private async Task ExportToJson()
+    {
+        var json = JsonSerializer.Serialize(timerHistory);
+
+        var wwwRootPath = hostEnvironment.WebRootPath;
+
+        var filePath = Path.Combine(wwwRootPath, "timer_history.json");
+
+        await File.WriteAllTextAsync(filePath, json);
+    }
+    
+    private void OnRadioChange()
+    {
+        if (!timer25)
+        {
+            workTime = workTime25;
+            minutes = workTime25;
+            breakTime = breakTime25;
+        }
+        else
+        {
+            workTime = workTime45;
+            minutes = workTime45;
+            breakTime = breakTime45;
+        }
     }
 
     private void StartTimer()
@@ -38,7 +110,6 @@
             isRunning = true;
             timer.Start();
             StateHasChanged(); // Trigger UI update
-
         }
     }
 
@@ -51,7 +122,28 @@
         StateHasChanged(); // Trigger UI update
     }
 
-    private async void TimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+    private void PauseTimer()
+    {
+        if (isRunning)
+        {
+            timer.Stop(); // Stop the timer
+            isRunning = false; // Update the running flag
+            StateHasChanged(); // Trigger UI update
+        }
+    }
+
+    private void ResumeTimer()
+    {
+        if (!isRunning)
+        {
+            timer.Start(); // Start the timer
+            isRunning = true; // Update the running flag
+            StateHasChanged(); // Trigger UI update
+        }
+    }
+
+
+    private async void TimerElapsed(object sender, ElapsedEventArgs e)
     {
         if (seconds == 0)
         {
@@ -59,23 +151,23 @@
             {
                 timer.Stop();
                 isRunning = false;
-                if (workTime > 0)
+                if (isWorking)
                 {
-                    minutes = breakTime;
+                    isWorking = false;
+                    timerHistory.Add(new TimerSessionData { Minutes = workTime, Seconds = 0 });
                 }
                 else
                 {
-                    minutes = workTime;
+                    isWorking = true;
                 }
+
                 seconds = 0;
                 await InvokeAsync(StateHasChanged); // Ensure UI update on UI thread
                 return;
             }
-            else
-            {
-                minutes--;
-                seconds = 59;
-            }
+
+            minutes--;
+            seconds = 59;
         }
         else
         {
@@ -84,6 +176,12 @@
 
 
         await InvokeAsync(StateHasChanged); // Ensure UI update on UI thread
-
     }
+
+    public class TimerSessionData
+    {
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+    }
+
 }
