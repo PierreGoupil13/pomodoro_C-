@@ -1,4 +1,5 @@
 ﻿@page "/pomodoro"
+@rendermode InteractiveServer
 
 <PageTitle>Pomodoro Timer</PageTitle>
 
@@ -11,30 +12,33 @@
 </div>
 
 <button class="btn btn-primary" @onclick="StartTimer" disabled="@isRunning">Start</button>
-<button class="btn btn-primary" @onclick="ResetTimer" disabled="@isRunning">Reset</button>
+<button class="btn btn-primary" @onclick="ResetTimer" disabled="@(!isRunning)">Reset</button>
 
 @code {
-    private int workTime = 25;
+    private int workTime = 1;
     private int breakTime = 5;
-    private int minutes = 25;
-    private int seconds = 0;
+    private int minutes = 0;
+    private int seconds = 5;
     private bool isRunning = false;
     private System.Timers.Timer timer;
 
     private string DisplayTime => $"{minutes:00}:{seconds:00}";
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         timer = new System.Timers.Timer(1000);
         timer.Elapsed += TimerElapsed;
+        await base.OnInitializedAsync();
     }
 
     private void StartTimer()
     {
         if (!isRunning)
         {
-            timer.Start();
             isRunning = true;
+            timer.Start();
+            StateHasChanged(); // Trigger UI update
+
         }
     }
 
@@ -44,9 +48,10 @@
         isRunning = false;
         minutes = workTime;
         seconds = 0;
+        StateHasChanged(); // Trigger UI update
     }
 
-    private void TimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+    private async void TimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
         if (seconds == 0)
         {
@@ -57,15 +62,13 @@
                 if (workTime > 0)
                 {
                     minutes = breakTime;
-                    workTime = 0;
                 }
                 else
                 {
                     minutes = workTime;
-                    breakTime = 0;
                 }
                 seconds = 0;
-                StateHasChanged();
+                await InvokeAsync(StateHasChanged); // Ensure UI update on UI thread
                 return;
             }
             else
@@ -79,6 +82,8 @@
             seconds--;
         }
 
-        StateHasChanged();
+
+        await InvokeAsync(StateHasChanged); // Ensure UI update on UI thread
+
     }
 }
