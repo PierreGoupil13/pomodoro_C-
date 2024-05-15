@@ -1,0 +1,84 @@
+﻿@page "/pomodoro"
+
+<PageTitle>Pomodoro Timer</PageTitle>
+
+<h1>Pomodoro Timer</h1>
+
+<div>
+    <p>Work Time: @workTime minutes</p>
+    <p>Break Time: @breakTime minutes</p>
+    <p role="status">Time Remaining: @DisplayTime</p>
+</div>
+
+<button class="btn btn-primary" @onclick="StartTimer" disabled="@isRunning">Start</button>
+<button class="btn btn-primary" @onclick="ResetTimer" disabled="@isRunning">Reset</button>
+
+@code {
+    private int workTime = 25;
+    private int breakTime = 5;
+    private int minutes = 25;
+    private int seconds = 0;
+    private bool isRunning = false;
+    private System.Timers.Timer timer;
+
+    private string DisplayTime => $"{minutes:00}:{seconds:00}";
+
+    protected override void OnInitialized()
+    {
+        timer = new System.Timers.Timer(1000);
+        timer.Elapsed += TimerElapsed;
+    }
+
+    private void StartTimer()
+    {
+        if (!isRunning)
+        {
+            timer.Start();
+            isRunning = true;
+        }
+    }
+
+    private void ResetTimer()
+    {
+        timer.Stop();
+        isRunning = false;
+        minutes = workTime;
+        seconds = 0;
+    }
+
+    private void TimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+    {
+        if (seconds == 0)
+        {
+            if (minutes == 0)
+            {
+                timer.Stop();
+                isRunning = false;
+                if (workTime > 0)
+                {
+                    minutes = breakTime;
+                    workTime = 0;
+                }
+                else
+                {
+                    minutes = workTime;
+                    breakTime = 0;
+                }
+                seconds = 0;
+                StateHasChanged();
+                return;
+            }
+            else
+            {
+                minutes--;
+                seconds = 59;
+            }
+        }
+        else
+        {
+            seconds--;
+        }
+
+        StateHasChanged();
+    }
+}
