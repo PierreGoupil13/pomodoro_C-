@@ -33,6 +33,12 @@ jobs:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
+
+      - name: Set up .NET Core runtime
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.0'
+          
       - name: Install SonarQube scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: powershell
