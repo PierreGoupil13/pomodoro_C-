@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D+3HHxb9xruKzmVmIh3NUla8lAm6Av4Qc8IAjJRVhsk=",
+  "Hash": "AHclwz+cPXi1y5Tctqf/tBFrBQ1ztPpImIzf2J1evOY=",
   "Source": "BlazorApp1",
   "BasePath": "_content/BlazorApp1",
   "Mode": "Default",
@@ -129,6 +129,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.png"
+    },
+    {
+      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/focused_tomato.png",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/",
+      "BasePath": "_content/BlazorApp1",
+      "RelativePath": "focused_tomato.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/focused_tomato.png"
+    },
+    {
+      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/timer_history.json",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/",
+      "BasePath": "_content/BlazorApp1",
+      "RelativePath": "timer_history.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/timer_history.json"
     }
   ]
 }

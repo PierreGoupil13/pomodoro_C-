@@ -34,8 +34,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Pages/Pomodoro.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Qb21vZG9yby5yYXpvcg==
+[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Pages/Pomodoro_Ff.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Qb21vZG9yb19GZi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Pages/Pomodoro_Tf.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Qb21vZG9yb19UZi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Pages/Weather.razor]

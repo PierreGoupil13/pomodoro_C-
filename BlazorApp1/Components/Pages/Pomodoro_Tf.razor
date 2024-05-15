@@ -1,0 +1,166 @@
+﻿@page "/pomodoro_tf"
+@rendermode InteractiveServer
+@using System.Text.Json
+@inject IWebHostEnvironment hostEnvironment
+
+
+
+<PageTitle>Pomodoro Timer</PageTitle>
+
+<h1>Pomodoro Timer</h1>
+
+<div>
+    <p>Work Time: @workTime minutes</p>
+    <p>Break Time: @breakTime minutes</p>
+    <p role="status">Time Remaining: @DisplayTime</p>
+</div>
+
+<button class="btn btn-primary" @onclick="StartTimer" disabled="@isRunning">Start</button>
+<button class="btn btn-primary" @onclick="ResetTimer" disabled="@(!isRunning)">Reset</button>
+<button class="btn btn-primary" @onclick="PauseTimer" disabled="@(!isRunning)">Pause</button>
+<button class="btn btn-primary" @onclick="ResumeTimer" disabled="@(isRunning)">Resume</button>
+<button class="btn btn-primary" @onclick="ExportToJson">Export to JSON</button>
+
+
+<div>
+    <h2>Timer History</h2>
+    <ul class="list-group">
+        @foreach (var session in timerHistory)
+        {
+        <li class="list-group-item">Session : @($"{session.Minutes:00}:{session.Seconds:00}") écoulées</li>
+        }
+    </ul>
+</div>
+
+<script>
+    function downloadJson(data, filename) {
+        var blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+        var url = window.URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    }
+</script>
+
+
+@code {
+    private int workTime = 25;
+    private int breakTime = 5;
+    private bool isWorking = true;
+    private int minutes = 25;
+    private int seconds = 0;
+    private bool isRunning = false;
+    private List<TimerSessionData> timerHistory = new List<TimerSessionData>();
+    private System.Timers.Timer timer;
+
+    private string DisplayTime => $"{minutes:00}:{seconds:00}";
+
+    protected override async Task OnInitializedAsync()
+    {
+        timer = new System.Timers.Timer(1000);
+        timer.Elapsed += TimerElapsed;
+        await base.OnInitializedAsync();
+    }
+    
+    private async Task ExportToJson()
+    {
+        var json = JsonSerializer.Serialize(timerHistory);
+        
+        var wwwRootPath = hostEnvironment.WebRootPath;
+
+        var filePath = Path.Combine(wwwRootPath, "timer_history.json");
+
+        await File.WriteAllTextAsync(filePath, json);
+    }
+    
+    private void StartTimer()
+    {
+        if (!isRunning)
+        {
+            isRunning = true;
+            timer.Start();
+            StateHasChanged(); // Trigger UI update
+
+        }
+    }
+    
+    private void ResetTimer()
+    {
+        timer.Stop();
+        isRunning = false;
+        minutes = workTime;
+        seconds = 0;
+        StateHasChanged(); // Trigger UI update
+    }
+
+    private void PauseTimer()
+    {
+        if (isRunning)
+        {
+            timer.Stop(); // Stop the timer
+            isRunning = false; // Update the running flag
+            StateHasChanged(); // Trigger UI update
+        }
+    }
+    
+    private void ResumeTimer()
+    {
+        if (!isRunning)
+        {
+            timer.Start(); // Start the timer
+            isRunning = true; // Update the running flag
+            StateHasChanged(); // Trigger UI update
+        }
+    }
+
+
+    private async void TimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+    {
+        if (seconds == 0)
+        {
+            if (minutes == 0)
+            {
+                timer.Stop();
+                isRunning = false;
+                if (isWorking)
+                {
+                    isWorking = false;
+                    timerHistory.Add(new TimerSessionData { Minutes = workTime, Seconds = 0 });
+                }
+                else
+                {
+                    isWorking = true;
+
+                }
+                seconds = 0;
+                await InvokeAsync(StateHasChanged); // Ensure UI update on UI thread
+                return;
+            }
+            else
+            {
+                minutes--;
+                seconds = 59;
+            }
+        }
+        else
+        {
+            seconds--;
+        }
+
+
+        await InvokeAsync(StateHasChanged); // Ensure UI update on UI thread
+
+    }
+    
+    public class TimerSessionData
+    {
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+    }
+
+}
+
