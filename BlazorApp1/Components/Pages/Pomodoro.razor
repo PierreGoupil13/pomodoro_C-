@@ -3,6 +3,8 @@
 @using System.Timers
 @rendermode InteractiveServer
 @inject IWebHostEnvironment hostEnvironment
+@inject IJSRuntime JSRuntime
+
 
 
 <PageTitle>Pomodoro Timer</PageTitle>
@@ -24,7 +26,7 @@
 <button class="btn btn-primary" @onclick="ResetTimer" disabled="@(!isRunning)">Reset</button>
 <button class="btn btn-primary" @onclick="PauseTimer" disabled="@(!isRunning)">Pause</button>
 <button class="btn btn-primary" @onclick="ResumeTimer" disabled="@(isRunning)">Resume</button>
-<button class="btn btn-primary" @onclick="ExportToJson">Export to JSON</button>
+<button class="btn btn-primary" @onclick="AppendToJson">End Session</button>
 
 
 <div>
@@ -32,31 +34,17 @@
     <ul class="list-group">
         @foreach (var session in timerHistory)
         {
-            <li class="list-group-item">Session : @($"{session.Minutes:00}:{session.Seconds:00}") écoulées</li>
+            <li class="list-group-item">Session @session.StartDate : @($"{session.Minutes:00}:{session.Seconds:00}") écoulées</li>
         }
     </ul>
 </div>
-
-<script>
-    function downloadJson(data, filename) {
-        var blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
-        var url = window.URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-    }
-</script>
-
 
 @code {
     private readonly int workTime25 = 25;
     private readonly int breakTime25 = 5;
     private readonly int workTime45 = 45;
     private readonly int breakTime45 = 15;
+    private string startDate;
     private int workTime = 25;
     private int breakTime = 5;
     private bool isWorking = true;
@@ -85,6 +73,28 @@
         var filePath = Path.Combine(wwwRootPath, "timer_history.json");
 
         await File.WriteAllTextAsync(filePath, json);
+    }
+    
+    private async Task AppendToJson()
+    {
+        // Read existing JSON data from file
+        var filePath = Path.Combine(hostEnvironment.WebRootPath, "timer_history.json");
+        string existingJson = await File.ReadAllTextAsync(filePath);
+
+        // Deserialize existing JSON data to a list
+        List<TimerSessionData> existingData = JsonSerializer.Deserialize<List<TimerSessionData>>(existingJson);
+
+        // Append new data to the existing list
+        existingData.AddRange(timerHistory);
+
+        // Serialize the combined data back to JSON
+        string combinedJson = JsonSerializer.Serialize(existingData);
+
+        // Write the combined JSON data back to the file, overwriting the existing content
+        await File.WriteAllTextAsync(filePath, combinedJson);
+        
+        await JSRuntime.InvokeVoidAsync("location.reload");
+
     }
     
     private void OnRadioChange()
@@ -154,7 +164,8 @@
                 if (isWorking)
                 {
                     isWorking = false;
-                    timerHistory.Add(new TimerSessionData { Minutes = workTime, Seconds = 0 });
+                    startDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    timerHistory.Add(new TimerSessionData { StartDate = startDate, Minutes = workTime, Seconds = seconds });
                 }
                 else
                 {
@@ -180,8 +191,10 @@
 
     public class TimerSessionData
     {
+        public string StartDate { get; set; } // New property for start date
         public int Minutes { get; set; }
         public int Seconds { get; set; }
+        
     }
 
 }
