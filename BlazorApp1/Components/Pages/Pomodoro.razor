@@ -40,20 +40,20 @@
 </div>
 
 @code {
-    private readonly int workTime25 = 25;
-    private readonly int breakTime25 = 5;
-    private readonly int workTime45 = 45;
-    private readonly int breakTime45 = 15;
-    private string startDate;
-    private int workTime = 25;
-    private int breakTime = 5;
-    private bool isWorking = true;
-    private int minutes = 25;
-    private int seconds;
-    private bool isRunning;
-    private bool timer25 = true;
+    public readonly int workTime25 = 25;
+    public readonly int breakTime25 = 5;
+    public readonly int workTime45 = 45;
+    public readonly int breakTime45 = 15;
+    public string startDate;
+    public int workTime = 25;
+    public int breakTime = 5;
+    public bool isWorking = true;
+    public int minutes = 25;
+    public int seconds;
+    public bool isRunning;
+    public bool timer25 = true;
     private readonly List<TimerSessionData> timerHistory = new();
-    private Timer timer;
+    public Timer? timer;
 
     private string DisplayTime => $"{minutes:00}:{seconds:00}";
 
@@ -62,6 +62,16 @@
         timer = new Timer(1000);
         timer.Elapsed += TimerElapsed;
         await base.OnInitializedAsync();
+    }
+    
+    public virtual void InvokeStateHasChanged()
+    {
+        StateHasChanged();
+    }
+
+    protected virtual async void InvokeAsyncStateHasChanged()
+    {
+        await InvokeAsync(StateHasChanged);
     }
 
     private async Task ExportToJson()
@@ -97,7 +107,7 @@
 
     }
     
-    private void OnRadioChange()
+    public void OnRadioChange()
     {
         if (!timer25)
         {
@@ -113,23 +123,23 @@
         }
     }
 
-    private void StartTimer()
+    public void StartTimer()
     {
         if (!isRunning)
         {
             isRunning = true;
-            timer.Start();
-            StateHasChanged(); // Trigger UI update
+            timer?.Start();
+            InvokeStateHasChanged(); // Trigger UI update
         }
     }
 
-    private void ResetTimer()
+    public void ResetTimer()
     {
-        timer.Stop();
+        timer?.Stop();
         isRunning = false;
         minutes = workTime;
         seconds = 0;
-        StateHasChanged(); // Trigger UI update
+        InvokeStateHasChanged(); // Trigger UI update
     }
 
     private void PauseTimer()

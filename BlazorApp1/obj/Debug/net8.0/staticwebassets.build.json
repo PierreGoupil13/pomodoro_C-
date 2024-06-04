@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AHclwz+cPXi1y5Tctqf/tBFrBQ1ztPpImIzf2J1evOY=",
+  "Hash": "Q3Rr6Ojzr2h+sNOL/kv2J511L5aKLeAMPMZFjzt5XmU=",
   "Source": "BlazorApp1",
   "BasePath": "_content/BlazorApp1",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BlazorApp1/wwwroot",
       "Source": "BlazorApp1",
-      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/",
       "BasePath": "_content/BlazorApp1",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/obj/Debug/net8.0/scopedcss/bundle/BlazorApp1.styles.css",
+      "Identity": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/obj/Debug/net8.0/scopedcss/bundle/BlazorApp1.styles.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/obj/Debug/net8.0/scopedcss/bundle/",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/obj/Debug/net8.0/scopedcss/bundle/",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "BlazorApp1.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/obj/Debug/net8.0/scopedcss/bundle/BlazorApp1.styles.css"
+      "OriginalItemSpec": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/obj/Debug/net8.0/scopedcss/bundle/BlazorApp1.styles.css"
     },
     {
-      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/obj/Debug/net8.0/scopedcss/projectbundle/BlazorApp1.bundle.scp.css",
+      "Identity": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/obj/Debug/net8.0/scopedcss/projectbundle/BlazorApp1.bundle.scp.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/obj/Debug/net8.0/scopedcss/projectbundle/",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/obj/Debug/net8.0/scopedcss/projectbundle/",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "BlazorApp1.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/obj/Debug/net8.0/scopedcss/projectbundle/BlazorApp1.bundle.scp.css"
+      "OriginalItemSpec": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/obj/Debug/net8.0/scopedcss/projectbundle/BlazorApp1.bundle.scp.css"
     },
     {
-      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/app.css",
+      "Identity": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/app.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot/app.css"
     },
     {
-      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css",
+      "Identity": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot/bootstrap/bootstrap.min.css"
     },
     {
-      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css.map",
+      "Identity": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css.map",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot/bootstrap/bootstrap.min.css.map"
     },
     {
-      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/favicon.png",
+      "Identity": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/favicon.png",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot/favicon.png"
     },
     {
-      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/focused_tomato.png",
+      "Identity": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/focused_tomato.png",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "focused_tomato.png",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot/focused_tomato.png"
     },
     {
-      "Identity": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/timer_history.json",
+      "Identity": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/timer_history.json",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/",
+      "ContentRoot": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "timer_history.json",
       "AssetKind": "All",

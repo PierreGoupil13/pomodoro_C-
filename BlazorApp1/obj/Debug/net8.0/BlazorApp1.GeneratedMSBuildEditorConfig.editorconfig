@@ -9,51 +9,51 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BlazorApp1
 build_property.RootNamespace = BlazorApp1
-build_property.ProjectDir = /Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/
+build_property.ProjectDir = /Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1
+build_property.MSBuildProjectDirectory = /Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/App.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Pages/Counter.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Db3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Pages/Error.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Pages/Home.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Pages/Pomodoro.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/Pages/Pomodoro.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Qb21vZG9yby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Pages/Weather.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9XZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Routes.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Sb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/_Imports.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Layout/MainLayout.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-nz1yiwl0um
 
-[/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/Components/Layout/NavMenu.razor]
+[/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-zjo6z1fhij

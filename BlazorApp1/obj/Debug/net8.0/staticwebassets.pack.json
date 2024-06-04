@@ -1,31 +1,31 @@
 {
   "Files": [
     {
-      "Id": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/obj/Debug/net8.0/scopedcss/projectbundle/BlazorApp1.bundle.scp.css",
+      "Id": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/obj/Debug/net8.0/scopedcss/projectbundle/BlazorApp1.bundle.scp.css",
       "PackagePath": "staticwebassets/BlazorApp1.bundle.scp.css"
     },
     {
-      "Id": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/app.css",
+      "Id": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/app.css",
       "PackagePath": "staticwebassets/app.css"
     },
     {
-      "Id": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css",
+      "Id": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css",
       "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
     },
     {
-      "Id": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css.map",
+      "Id": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css.map",
       "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
     },
     {
-      "Id": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/favicon.png",
+      "Id": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/favicon.png",
       "PackagePath": "staticwebassets/favicon.png"
     },
     {
-      "Id": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/focused_tomato.png",
+      "Id": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/focused_tomato.png",
       "PackagePath": "staticwebassets/focused_tomato.png"
     },
     {
-      "Id": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/wwwroot/timer_history.json",
+      "Id": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/wwwroot/timer_history.json",
       "PackagePath": "staticwebassets/timer_history.json"
     },
     {

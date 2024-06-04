@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rnEIZAbKS9nhDtj2GhJV4VZvc3GtOkG7l4MhtdMVJBnb+ikTH+/g3Bdh/vwJu6kjm6WYsebCNpNpnRNg81TOxw==",
+  "dgSpecHash": "AiOeWE+p456FtkSd4906Jb/mmI429fooRuXuTO0ammEWEE83INnPEgKe/DgKbCYsqd+3uGTl0w5WFd6PXzyAqg==",
   "success": true,
-  "projectFilePath": "/Users/pierregoupil/RiderProjects/BlazorApp1/BlazorApp1/BlazorApp1.csproj",
+  "projectFilePath": "/Users/pierregoupil/RiderProjects/pomodoro_C-/BlazorApp1/BlazorApp1.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
