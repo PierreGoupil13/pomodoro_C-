@@ -1,0 +1,18 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=BC5A3E70_002D70AB_002D49D4_002D9E7C_002D24CC161C637C/@EntryIndexedValue">9690BD92-3AA5-4297-9F74-CE41CF194D0D</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=NUnit3x/@EntryIndexedValue">db4927dd-2e12-48a7-9a84-2b7e3e31b9c8</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=adf63255_002D6b0b_002D48f8_002D873a_002Ded472b27f461/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::9690BD92-3AA5-4297-9F74-CE41CF194D0D::net8.0::TestProject1.Tests.Test1&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::9690BD92-3AA5-4297-9F74-CE41CF194D0D::net8.0::TestProject1.Tests+TimerSessionDataTests.TimerSessionData_StoresCorrectData&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::9690BD92-3AA5-4297-9F74-CE41CF194D0D::net8.0::TestProject1.Components.Pages.PomodoroTest.METHOD&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::9690BD92-3AA5-4297-9F74-CE41CF194D0D::net8.0::TestProject1.Components.Pages.PomodoroTest.OnRadioChange_SetsWorkAndBreakTimeFor25MinuteMode_WhenTimer25IsTrue&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::9690BD92-3AA5-4297-9F74-CE41CF194D0D::net8.0::TestProject1.Tests.OnRadioChange_SetsWorkAndBreakTimeFor25MinuteMode_WhenTimer25IsTrue&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::9690BD92-3AA5-4297-9F74-CE41CF194D0D::net8.0::TestProject1.Components.Pages.PomodoroTest.OnRadioChange_SetsWorkAndBreakTimeFor45MinuteMode_WhenTimer25IsFalse&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::9690BD92-3AA5-4297-9F74-CE41CF194D0D::net8.0::TestProject1.Components.Pages.PomodoroTest.StartTimer_SetsIsRunningToTrueAndStartsTimer_WhenIsRunningIsFalse&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::9690BD92-3AA5-4297-9F74-CE41CF194D0D::net8.0::TestProject1.Components.Pages.PomodoroTest.StartTimer_StartsTimer_WhenNotRunning&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::9690BD92-3AA5-4297-9F74-CE41CF194D0D::net8.0::TestProject1.Components.Pages.PomodoroTest.ResetTimer_StopsTimerAndResetsValues_WhenTimerIsRunning&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	
+	</wpf:ResourceDictionary>
